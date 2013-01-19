@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gitstats">
+    <head>
+        <meta charset="utf-8">
+        <title>Git Stats</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    </head>
+    <body class="ng-cloak" ng-controller="FetcherCtrl">
+        <div class="span5 offset2" ng-repeat="user in commits">
+            <h3>{{user[0].user_email}}</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>branch</th>
+                        <th>time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in user">
+                        <td>{{c.branch_name}}</td>
+                        <td>{{c.createdAt | date:'h:m:s a M/d/yy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div
+        <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+        <script>
+            angular.module('gitstats', []);
+        </script>
+        <script src="app.js"></script>
+    </body>
+</html>
