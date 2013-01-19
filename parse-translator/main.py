@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 import webapp2
+import logging
 
 from google.appengine.api import urlfetch
 
@@ -27,12 +28,13 @@ HEADERS = {
 
 class GitstatsTestHandler(webapp2.RequestHandler):
     def post(self):
-        data = self.request.body
+        data = self.request.get('payload')
         url = 'https://api.parse.com/1/classes/Push'
         result = urlfetch.fetch(url=url,
                                 payload=data,
                                 method=urlfetch.POST,
                                 headers=HEADERS)
+        logging.debug('Parse Response: %s' % result.content)
         self.response.write(result.content)
 
 app = webapp2.WSGIApplication([
