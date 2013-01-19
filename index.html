@@ -8,7 +8,7 @@
     </head>
     <body class="ng-cloak" ng-controller="FetcherCtrl">
         <div class="span5 offset2" ng-repeat="user in commits">
-            <h3>{{user[0].user_email}}</h3>
+            <h3>{{user[0].user_email.split('@')[0]}}</h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
