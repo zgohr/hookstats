@@ -7,8 +7,7 @@ var FetcherCtrl = ['$scope', '$http', function($scope, $http){
     'X-Parse-REST-API-Key': 'r3mCXuXSTNQ7OHiX7u5jmLG5DPYWNQ7PTWNCXhNN'
   };
   var params = {
-    "order": "-createdAt",
-    "distinct": "user_email"
+    "order": "-createdAt"
   };
   $scope.commits = {};
   $http.get(url, {headers: headers, params: params}).success(function(data, success){
